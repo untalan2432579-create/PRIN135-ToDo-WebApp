@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="todo-app">
+
+        <header>
+            <h1>Todo List</h1>
+            <p class="subtitle">Organize your tasks and track your progress.</p>
+        </header>
+
+        <!-- ADD TASK FORM -->
+        <form id="todoForm" class="add-form">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs to be done?"
+                required
+            >
+
+            <input
+                type="number"
+                id="hoursInput"
+                min="0"
+                step="0.5"
+                placeholder="Hours"
+            >
+
+            <button type="submit" class="add-button">
+                Add
+            </button>
+
+        </form>
+
+        <!-- FILTER BUTTONS -->
+        <nav class="filters">
+
+            <button type="button" class="filter active" data-filter="all">
+                All
+            </button>
+
+            <button type="button" class="filter" data-filter="active">
+                Active
+            </button>
+
+            <button type="button" class="filter" data-filter="completed">
+                Completed
+            </button>
+
+        </nav>
+
+        <!-- MARK ALL BUTTON -->
+        <div class="bulk-action">
+            <button type="button" id="toggleAllButton">
+                Mark all done
+            </button>
+        </div>
+
+        <!-- TASK LIST -->
+        <ul id="taskList" class="task-list"></ul>
+
+        <p id="emptyMessage" class="empty-message" hidden>
+            Nothing here yet. Add a task above.
+        </p>
+
+        <!-- FOOTER / TASK MONITORING -->
+        <footer>
+
+            <div class="summary">
+
+                <div class="summary-stats">
+
+                    <span id="itemsLeft">0 items left</span>
+
+                    <span>|</span>
+
+                    <span id="allHours">0 hours total</span>
+
+                    <span>|</span>
+
+                    <span id="remainingHours">0 hours remaining</span>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="clearCompletedButton"
+                    hidden
+                >
+                    Clear completed
+                </button>
+
+            </div>
+
+            <!-- DIFFICULTY BREAKDOWN -->
+            <section class="difficulty-summary">
+
+                <h3>Task Difficulty Summary</h3>
+
+                <div class="difficulty-stats">
+
+                    <div class="difficulty-card easy-card">
+                        <span class="difficulty-name">Easy</span>
+                        <strong id="easyCount">0 tasks</strong>
+                        <span id="easyHours">0h total</span>
+                    </div>
+
+                    <div class="difficulty-card medium-card">
+                        <span class="difficulty-name">Medium</span>
+                        <strong id="mediumCount">0 tasks</strong>
+                        <span id="mediumHours">0h total</span>
+                    </div>
+
+                    <div class="difficulty-card hard-card">
+                        <span class="difficulty-name">Hard</span>
+                        <strong id="hardCount">0 tasks</strong>
+                        <span id="hardHours">0h total</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- INSTRUCTIONS -->
+            <div class="helper">
+
+                <p>
+                    <span class="easy-text">Easy:</span> up to 2h |
+                    <span class="medium-text">Medium:</span> over 2h up to 5h |
+                    <span class="hard-text">Hard:</span> over 5h.
+                </p>
+
+                <p>
+                    Double-click a task or its label to edit the text or hours.
+                    Press Enter to save, Esc to cancel.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
